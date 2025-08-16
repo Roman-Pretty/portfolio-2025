@@ -5,9 +5,11 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vue-tsc && vite build && mv ../api/static/api/spa/index.html ../api/templates/api/spa/.",
-        "build-windows": "vue-tsc && vite build && move ..\\api\\static\\api\\spa\\index.html ..\\api\\templates\\api\\spa\\.",
-        "preview": "vite preview"
+        "build": "vue-tsc && vite build",
+        "build-windows": "vue-tsc && vite build",
+        "build-ghpages": "vue-tsc && vite build && copy index.html dist\\404.html",
+        "preview": "vite preview",
+        "deploy": "npm run build-ghpages && git add dist && git commit -m \"adding dist subtree\" && git subtree push --prefix dist origin gh-pages"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.0.0",

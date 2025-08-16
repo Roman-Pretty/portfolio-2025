@@ -18,7 +18,7 @@ interface MessageProps {
 /**
  * Component props definition
  */
-const props = defineProps<MessageProps>();
+defineProps<MessageProps>();
 </script>
 
 <template>

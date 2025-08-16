@@ -7,8 +7,7 @@
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import tailwindcss from '@tailwindcss/vite'
-import path from 'path';
+import tailwindcss from '@tailwindcss/vite';
 
 /**
  * Vite configuration with environment-specific settings
@@ -20,18 +19,18 @@ export default defineConfig(({ mode }) => ({
     /**
      * Base URL configuration
      * Development: Uses local dev server
-     * Production: Uses static API path
+     * Production: Uses GitHub Pages path for repository
      */
     base: mode == "development" 
-        ? "http://localhost:5173/"
-        : "/static/api/spa/",
+        ? "/"
+        : "/portfolio-2025/",
     
     /**
      * Build configuration
      */
     build: {
         emptyOutDir: true,
-        outDir: "../api/static/api/spa",
+        outDir: "dist",
     },
     
     /**
@@ -43,14 +42,4 @@ export default defineConfig(({ mode }) => ({
         vue(),
         tailwindcss(),
     ],
-    
-    /**
-     * Module resolution configuration
-     * Sets up path aliases for cleaner imports
-     */
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, './src'),
-        },
-    },
 }));

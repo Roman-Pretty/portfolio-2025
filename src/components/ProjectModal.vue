@@ -41,7 +41,7 @@ interface ProjectModalProps {
 /**
  * Component props definition
  */
-const props = defineProps<ProjectModalProps>();
+defineProps<ProjectModalProps>();
 
 /**
  * Open external link in new tab
