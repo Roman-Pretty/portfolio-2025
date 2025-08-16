@@ -8,7 +8,7 @@
 /* Import Tailwind CSS framework */
 @import "tailwindcss";
 
-/* Import DaisyUI component library */
+/* Import DaisyUI component library (forced light mode) */
 @plugin "daisyui";
 
 /**
@@ -25,9 +25,25 @@
 /**
  * Global Layout Styles
  * Enables smooth scrolling behavior across the application
+ * Forces light theme at root level
  */
 html, body, main {
   scroll-behavior: smooth;
+}
+
+/* Force light theme for entire application */
+:root {
+  color-scheme: light;
+}
+
+/* Ensure DaisyUI uses light theme */
+[data-theme] {
+  color-scheme: light;
+}
+
+html[data-theme="light"], 
+html[data-theme="light"] * {
+  color-scheme: light !important;
 }
 
 /**
