@@ -89,7 +89,7 @@ const openLink = (url: string): void => {
         
         <!-- Technologies -->
         <div v-if="project.technologies && project.technologies.length > 0">
-          <h3 class="text-lg font-semibold mb-3">Technologies Used</h3>
+          <h3 class="text-lg font-semibold mb-3">Tags and Technologies</h3>
           <div class="flex flex-wrap gap-2">
             <span 
               v-for="tech in project.technologies" 

@@ -15,6 +15,8 @@ interface AwardProps {
   awardedBy: string;
   /** Color variant for the award box */
   variant?: 'orange' | 'primary';
+  /** Link URL to open when award is clicked */
+  link?: string;
 }
 
 /**
@@ -37,10 +39,19 @@ const getAwardClasses = (): string => {
   
   return `${baseClasses} ${variantClasses[props.variant || 'primary']}`;
 };
+
+/**
+ * Handle award click - open link in new tab if provided
+ */
+const handleClick = (): void => {
+  if (props.link) {
+    window.open(props.link, '_blank');
+  }
+};
 </script>
 
 <template>
-  <div :class="getAwardClasses()">
+  <div :class="getAwardClasses()" @click="handleClick">
     <div class="text-center">
       <h3 class="text-lg font-bold">{{ title }}</h3>
       <p class="text-sm opacity-70 mt-1">Awarded by {{ awardedBy }}</p>

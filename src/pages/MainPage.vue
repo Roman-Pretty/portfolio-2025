@@ -102,23 +102,23 @@
               description="Deep learning model for image classification, with over 90% accuracy."
               full-description="A neural network implementation focused on the CIFAR-10 dataset, exploring various architectures and optimization techniques for image classification tasks."
               image="/nn.png" :technologies="['Python', 'Pytorch', 'Torch', 'CIFAR-10', 'Neural Networks']" variant="white"
-              github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              github-link="https://github.com/Roman-Pretty/portfolio-2025/blob/main/src/nn/CIFAR10%20Classifier.ipynb" @click="openProjectModal" />
           </div>
 
           <div class="aspect-square">
             <ProjectCard title="SWRPG Datapads"
               description="Figma design project for Star Wars RPG interface with extensive user engagement."
-              full-description="A comprehensive UI/UX design project created in Figma for Star Wars RPG datapads, featuring detailed interface designs that have attracted significant user engagement and community feedback."
-              image="/roman.jpeg" :technologies="['Figma', 'UI/UX Design', 'Star Wars RPG', 'Community Design']"
-              variant="white" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              full-description="A comprehensive UI design project created in Figma for Star Wars RPG, featuring detailed interface designs that have attracted significant user engagement and community feedback."
+              image="/datapad.png" :technologies="['Figma', 'UI/UX Design', 'Just for Fun', 'Community Design']"
+              variant="white" link="https://swrpgdatapad.com" github-link="https://github.com/Roman-Pretty/swrpg-datapad" @click="openProjectModal" />
           </div>
 
           <div class="aspect-square">
-            <ProjectCard title="X-Wing Unlimited Web App"
-              description="Vue.js web application for X-Wing Unlimited game with active user base."
-              full-description="A Vue.js-based web application supporting the X-Wing Unlimited tabletop game community, featuring game management tools and player resources with a growing user base."
-              image="/h24.jpg" :technologies="['Vue.js', 'JavaScript', 'Web Development', 'Gaming Community']"
-              variant="white" link="https://example.com" github-link="https://github.com/Roman-Pretty"
+            <ProjectCard title="X-Wing Unlimited"
+              description="Massive scale Vue.js web application for the tabletop boardgame X-Wing."
+              full-description="A Vue.js-based web application supporting the X-Wing tabletop game community, featuring game management tools and player resources with a growing user base."
+              image="/xwu.png" :technologies="['Vue.js', 'TypeScript', 'Web Development', 'Just for Fun', 'Community Design']"
+              variant="white" link="https://xwingunlimited.com" github-link="https://github.com/Roman-Pretty/xwingcards"
               @click="openProjectModal" />
           </div>
         </div>
@@ -126,37 +126,37 @@
         <!-- Row 2 - Centered (3 columns on tablet, 4 on desktop) -->
         <div class="grid grid-cols-3 lg:grid-cols-4 gap-6 mb-6">
           <div class="aspect-square">
-            <ProjectCard title="Hobby24 Social Platform"
+            <ProjectCard title="Hobby 24 Social Platform"
               description="Team-developed social networking application connecting hobby enthusiasts."
               full-description="A collaborative social networking application developed with a team, designed to connect people with shared hobbies and interests, featuring user profiles, community groups, and activity sharing."
-              image="/qmb.jpg"
+              image="/h24.png"
               :technologies="['Team Development', 'Social Networking', 'Full-Stack', 'Community Features']"
-              variant="white" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              variant="white" link="https://group24-web-apps-ec221017.apps.a.comp-teach.qmul.ac.uk/login/" github-link="https://github.com/Roman-Pretty/hobby24" @click="openProjectModal" />
           </div>
           <div class="aspect-square">
             <ProjectCard title="TourCast Weather App"
-              description="Weather forecast application providing detailed meteorological information."
+              description="Application providing activity recommendations based on the weather."
               full-description="A comprehensive weather forecast application that provides detailed meteorological information for travelers and outdoor enthusiasts, featuring location-based forecasts and weather alerts."
-              image="/qmb.jpg"
-              :technologies="['Weather APIs', 'Location Services', 'Mobile Development', 'Data Visualization']"
-              variant="white" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              image="/tc.png"
+              :technologies="['Weather APIs', 'Location Services', 'REST', 'Data Visualization']"
+              variant="white" github-link="https://github.com/Roman-Pretty/TourCast" @click="openProjectModal" />
           </div>
 
           <div class="aspect-square">
-            <ProjectCard title="Enterprise Scale Java Project"
-              description="Massive-scale Minecraft modification with 25 million downloads."
-              full-description="A comprehensive Minecraft modification that has reached over 25 million downloads worldwide. Built with Java and Minecraft Forge, this project demonstrates enterprise-level software development with massive user adoption and community engagement."
+            <ProjectCard title="Enterprise Scale Java Projects"
+              description="Massive-scale Minecraft modifications with over 23 million downloads."
+              full-description="Complex Minecraft modifications reaching over 23 million downloads worldwide. Built with Java, Minecraft Forge and my own custom API, these projects demonstrate enterprise-level software development with massive user adoption and community engagement. I am on hiatus from these projects whilst studying, but they are still available for download and use."
               image="/ed.png" :technologies="['Java', 'Minecraft Forge', 'Gradle', 'Community Management']"
-              variant="blue" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              variant="blue" github-link="https://github.com/ElenaiDev/ElenaiDodge2.0" link="https://www.curseforge.com/members/elenaidev/projects" @click="openProjectModal" />
           </div>
 
           <div class="aspect-square">
-            <ProjectCard title="Sheringham Acupuncture Site"
-              description="Professional website for acupuncture practice with appointment booking system."
-              full-description="A professional website developed for Sheringham Acupuncture practice, featuring appointment booking functionality, service information, and patient resources to support their healthcare business."
-              image="/holo.jpg"
-              :technologies="['Healthcare Web Dev', 'Appointment System', 'Professional Services', 'Patient Management']"
-              variant="white" link="https://example.com" github-link="https://github.com/Roman-Pretty"
+            <ProjectCard title="Sheringham Acupuncture"
+              description="Professional landing page for acupuncture practice with appointment booking system."
+              full-description="A professional website developed for Sheringham Acupuncture practice to a given specification, featuring appointment booking functionality. The design is specified by the client."
+              image="/sha.png"
+              :technologies="['Healthcare', 'Appointment System', 'Professional Services', 'Web Development']"
+              variant="white" link="http://sheringhamacupuncture.co.uk" github-link="https://github.com/Roman-Pretty/sheringham-acupuncture"
               @click="openProjectModal" />
           </div>
         </div>
@@ -165,19 +165,20 @@
         <div class="transform translate-x-4 lg:translate-x-16">
           <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="aspect-square">
-              <ProjectCard title="Holocron Mobile App"
-                description="React Native application for Star Wars RPG gameplay and character management."
-                full-description="A React Native mobile application designed for Star Wars RPG players, featuring character management, dice rolling, and game reference tools for enhanced tabletop gaming experiences."
-                image="/h24.png" :technologies="['React Native', 'Mobile Development', 'Gaming', 'Star Wars RPG']"
-                variant="white" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              <ProjectCard title="did my chores!"
+                description="React Native application for chore tracking and management."
+                full-description="What I am currently working on! A React Native mobile application designed for chore tracking and management, featuring task assignment, progress tracking, and reminders. When published, it will be linked below."
+                image="/dmc.png" :technologies="['React Native', 'Mobile Development', 'Task Management']"
+                variant="white" @click="openProjectModal" />
             </div>
 
             <div class="aspect-square">
               <ProjectCard title="Exchange Rate Chrome Extension"
-                description="Browser extension for real-time currency exchange rate monitoring and conversion."
+                description="Super-simple browser extension for real-time currency exchange rate monitoring and conversion."
                 full-description="A Chrome extension that provides real-time currency exchange rates and conversion tools, featuring quick access to current market rates and conversion calculations for international transactions."
-                image="/qmb.png" :technologies="['Chrome Extension', 'JavaScript', 'APIs', 'Financial Data']"
-                variant="white" link="https://example.com" github-link="https://github.com/Roman-Pretty"
+                image="/ce.png" :technologies="['Chrome Extension', 'Just for Fun', 'APIs', 'Financial Data']"
+                variant="white" 
+                github-link="https://github.com/Roman-Pretty/Exchange-Rate-Chrome-Extension"
                 @click="openProjectModal" />
             </div>
 
@@ -185,9 +186,9 @@
               <ProjectCard title="Holly-Eva Portfolio Site"
                 description="Professional portfolio website for musician with elegant design and media integration."
                 full-description="A custom-built portfolio website for musician Holly-Eva, featuring elegant design, media integration, and performance showcases to highlight her musical career and achievements."
-                image="/roman.jpeg"
+                image="/he.png"
                 :technologies="['Web Development', 'Media Integration', 'Portfolio Design', 'Music Industry']"
-                variant="white" link="https://example.com" github-link="https://github.com/Roman-Pretty"
+                variant="white" link="https://holly-eva.com" github-link="https://github.com/Roman-Pretty/holly-eva"
                 @click="openProjectModal" />
             </div>
           </div>
@@ -224,7 +225,7 @@
 
         <!-- QMUL Award -->
         <div class="flex-1">
-          <Award title="Westfield Trust Prize" awarded-by="QMUL Core Awards Body" variant="primary" />
+          <Award title="Westfield Trust Prize" awarded-by="QMUL Core Awards Body" variant="primary" link="https://www.qmul.ac.uk/registry-services/student-information/my-studies-/my-documents/documents-at-queen-mary-/academic-prizes-/" />
         </div>
 
         <!-- Divider 1 -->
@@ -233,7 +234,7 @@
 
         <!-- EECS Award 2 -->
         <div class="flex-1">
-          <Award title="Best Project Showcase" awarded-by="QMUL School of EECS" variant="primary" />
+          <Award title="Best Project Showcase" awarded-by="QMUL School of EECS" variant="primary" link="https://www.linkedin.com/posts/roman-pretty-054800209_i-am-honoured-to-have-received-both-the-demonstrator-activity-7343988145677299713-mHwy?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADT6cEABOPTJeZFqp_Pb4bl0ONyILEqpUcI" />
         </div>
 
         <!-- Divider 2 -->
@@ -241,7 +242,7 @@
 
         <!-- EECS Award 1 -->
         <div class="flex-1">
-          <Award title="Demonstrator of the Year" awarded-by="QMUL School of EECS" variant="primary" />
+          <Award title="Demonstrator of the Year" awarded-by="QMUL School of EECS" variant="primary" link="https://www.linkedin.com/posts/roman-pretty-054800209_i-am-honoured-to-have-received-both-the-demonstrator-activity-7343988145677299713-mHwy?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADT6cEABOPTJeZFqp_Pb4bl0ONyILEqpUcI" />
         </div>
 
       </div>
