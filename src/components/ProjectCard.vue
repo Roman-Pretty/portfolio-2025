@@ -94,34 +94,36 @@ const openLink = (url: string): void => {
     @mouseenter="isHovered = true"
     @mouseleave="isHovered = false"
   >
-    <div class="p-4 h-full flex flex-col justify-between font-sans">
+    <div class="p-2 md:p-4 h-full flex flex-col justify-between font-sans">
       <div>
-        <h3 class="text-lg font-bold mb-2" 
+        <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2" 
             :class="variant === 'white' ? 'text-gray-800' : 'text-white'">
           {{ title }}
         </h3>
-        <p class="text-sm opacity-80 line-clamp-3">
+        <p class="text-xs md:text-sm opacity-80 line-clamp-3">
           {{ description }}
         </p>
       </div>
       
-      <div class="mt-4">
-        <div class="flex gap-2">
+      <div class="mt-2 md:mt-4">
+        <div class="flex gap-1 md:gap-2">
           <button 
             v-if="link"
             @click.stop="openLink(link)"
-            class="btn btn-sm"
+            class="btn btn-xs md:btn-sm"
             :class="variant === 'white' ? 'btn-outline/50' : 'btn-outline/50'"
           >
-            <Eye :size="16" />
+            <Eye :size="12" class="md:hidden" />
+            <Eye :size="16" class="hidden md:block" />
           </button>
           <button 
             v-if="githubLink"
             @click.stop="openLink(githubLink)"
-            class="btn btn-sm"
+            class="btn btn-xs md:btn-sm"
             :class="variant === 'white' ? 'btn-outline/50' : 'btn-outline/50'"
           >
-            <Github :size="16" />
+            <Github :size="12" class="md:hidden" />
+            <Github :size="16" class="hidden md:block" />
           </button>
         </div>
       </div>

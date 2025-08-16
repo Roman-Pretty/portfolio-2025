@@ -4,12 +4,12 @@
   Displays education and career timeline information.
 -->
 <template>
-  <div class="w-full min-h-[calc(100%-4rem)] bg-base-100 flex flex-col items-center font-sans py-18">
+  <div class="w-full min-h-[calc(100%-4rem)] bg-base-100 flex flex-col items-center font-sans md:py-18 py-6">
     <h1 class=" text-2xl md:text-5xl font-serif mb-4 lg:pl-64 pl-4 lg:self-start ">Timelines</h1>
     <h2 class="font-serif mb-4 pl-4 lg:pl-64 lg:self-start text-md md:text-2xl text-base-content/50">My education and
       work
       history</h2>
-    <p class="w-full text-center font-xs font-semibold mt-18">Education</p>
+    <p class="w-full text-center font-xs font-semibold mt-6 md:mt-18">Education</p>
     <ul class="timeline timeline-vertical lg:timeline-horizontal px-6 lg:px-0">
       <li>
         <div class="timeline-start">2019</div>
@@ -53,7 +53,7 @@
     </ul>
 
 
-    <p class="w-full text-center font-xs font-semibold mt-18">Career</p>
+    <p class="w-full text-center font-xs font-semibold mt-6 md:mt-18">Career</p>
     <ul class="timeline timeline-vertical lg:timeline-horizontal px-6 lg:px-0">
       <li>
         <div class="timeline-start">2017</div>

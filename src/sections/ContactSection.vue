@@ -4,10 +4,10 @@
   Contact information, social links, and CV download functionality.
 -->
 <template>
-  <div class="h-[calc(100%-8rem)] w-full bg-base-200">
-    <div class="w-full h-full flex flex-col items-center pt-18 font-serif lg:px-64">
+  <div class="pb-6 md:pb-18 w-full bg-base-200">
+    <div class="w-full h-full flex flex-col items-center pt-6 md:pt-18 font-serif lg:px-64">
       <h1 class="w-full text-center  text-2xl md:text-5xl mb-4">Reach out</h1>
-      <h2 class="w-full text-center text-md md:text-2xl text-base-content/50 mb-18 max-w-2/3">Please email me if you
+      <h2 class="w-full text-center text-md md:text-2xl text-base-content/50 mb-6 md:mb-18 max-w-2/3">Please email me if you
         have any
         enquiries, or
         download my CV</h2>
@@ -24,7 +24,7 @@
           </div>
           <div>
             <div>Email</div>
-            <div class="text-xs font-semibold opacity-60">romanjjpretty@gmail.com</div>
+            <div class="text-xs font-semibold opacity-60 hidden sm:flex">romanjjpretty@gmail.com</div>
           </div>
           <button class="btn btn-square btn-ghost" @click="openLink('mailto:romanjjpretty@gmail.com')">
             <ExternalLink :size="20" />
@@ -50,7 +50,7 @@
           </div>
           <div>
             <div>LinkedIn</div>
-            <div class="text-xs font-semibold opacity-60">roman-pretty-054800209</div>
+            <div class="text-xs font-semibold opacity-60 hidden sm:flex">roman-pretty-054800209</div>
           </div>
           <button class="btn btn-square btn-ghost" @click="openLink('https://linkedin.com/in/roman-pretty-054800209')">
             <ExternalLink :size="20" />
@@ -77,7 +77,7 @@
           </div>
           <div>
             <div>GitHub</div>
-            <div class="text-xs font-semibold opacity-60">Roman-Pretty</div>
+            <div class="text-xs font-semibold opacity-60 hidden sm:flex">Roman-Pretty</div>
           </div>
           <button class="btn btn-square btn-ghost" @click="openLink('https://github.com/Roman-Pretty')">
             <ExternalLink :size="20" />
@@ -103,7 +103,7 @@
           </div>
           <div>
             <div>CV</div>
-            <div class="text-xs font-semibold opacity-60">Download</div>
+            <div class="text-xs font-semibold opacity-60 hidden sm:flex">Download</div>
           </div>
           <button class="btn btn-square btn-ghost" @click="downloadCV">
             <Download :size="20" />
@@ -115,8 +115,6 @@
 
     </div>
 
-    <div class="navbar bg-base-content text-base-100 shadow-sm mt-10 md:mt-16 xl:mt-0">
-    </div>
   </div>
 </template>
 

@@ -4,7 +4,7 @@
   Displays academic and professional awards and recognition.
 -->
 <template>
-  <div id="awards" class="min-h-[calc(50vh)] bg-base-300/80 pt-18 xl:px-64 px-10 font-serif pb-20 relative">
+  <div id="awards" class="min-h-[calc(50vh)] bg-base-300/80 md:pt-18 pt-6 xl:px-64 px-10 font-serif md:pb-20 pb-6 relative">
     <!-- Background Stars -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <Star class="absolute text-gray-500 opacity-10 w-16 h-16 left-1/5 top-24 transform -rotate-12"
@@ -18,7 +18,7 @@
     </div>
 
     <h1 class="w-full text-center text-2xl md:text-5xl mb-4 relative z-10">Awards</h1>
-    <h2 class="w-full text-center text-md md:text-2xl text-base-content/50 mb-18 relative z-10">Recognition I have
+    <h2 class="w-full text-center text-md md:text-2xl text-base-content/50 md:mb-18 mb-6 relative z-10">Recognition I have
       received at
       university</h2>
 
@@ -32,7 +32,7 @@
         </div>
 
         <!-- Divider 1 -->
-        <div class="divider divider-horizontal opacity-50"></div>
+        <div class="divider lg:divider-horizontal opacity-50"></div>
 
 
         <!-- EECS Award 2 -->
@@ -41,7 +41,7 @@
         </div>
 
         <!-- Divider 2 -->
-        <div class="divider divider-horizontal opacity-50"></div>
+        <div class="divider lg:divider-horizontal opacity-50"></div>
 
         <!-- EECS Award 1 -->
         <div class="flex-1">

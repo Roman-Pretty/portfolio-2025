@@ -4,7 +4,7 @@
   The landing section with personal introduction and profile image.
 -->
 <template>
-  <div class="hero min-h-[calc(100%-4rem)] bg-base-200">
+  <div class="hero md:min-h-[calc(100%-4rem)] bg-base-200">
     <div class="hero-content text-center font-serif flex-col-reverse lg:flex-row mt-28 lg:mt-0">
       <div class="flex-1 flex flex-col items-center">
         <h1 class="text-xl lg:text-5xl lg:max-w-4/5">Hey there, I'm <span>Roman</span>, a

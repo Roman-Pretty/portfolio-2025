@@ -13,6 +13,7 @@
     <AwardsSection />
     <TimelineSection />
     <ContactSection />
+    <Footer />
   </main>
 </template>
 
@@ -25,6 +26,7 @@ import ProjectsSection from "./sections/ProjectsSection.vue";
 import AwardsSection from "./sections/AwardsSection.vue";
 import TimelineSection from "./sections/TimelineSection.vue";
 import ContactSection from "./sections/ContactSection.vue";
+import Footer from "./sections/Footer.vue";
 
 /**
  * Root application component
@@ -41,7 +43,8 @@ export default defineComponent({
     ProjectsSection,
     AwardsSection,
     TimelineSection,
-    ContactSection
+    ContactSection,
+    Footer
   },
 });
 </script>
