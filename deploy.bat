@@ -5,6 +5,9 @@ call npm run build-ghpages
 REM Navigate to dist directory
 cd dist
 
+REM Create CNAME file for custom domain
+echo romanpretty.com > CNAME
+
 REM Initialize git repo if not exists
 if not exist ".git" (
     git init

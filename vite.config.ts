@@ -19,11 +19,9 @@ export default defineConfig(({ mode }) => ({
     /**
      * Base URL configuration
      * Development: Uses local dev server
-     * Production: Uses GitHub Pages path for repository
+     * Production: Uses custom domain (romanpretty.com)
      */
-    base: mode == "development" 
-        ? "/"
-        : "/portfolio-2025/",
+    base: "/",
     
     /**
      * Build configuration

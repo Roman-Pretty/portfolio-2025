@@ -9,8 +9,8 @@ npm run build-ghpages
 # navigate into the build output directory
 cd dist
 
-# if you are deploying to a custom domain
-# echo 'www.example.com' > CNAME
+# Custom domain configuration
+echo 'romanpretty.com' > CNAME
 
 git init
 git checkout -b main
