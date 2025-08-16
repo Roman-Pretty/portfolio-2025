@@ -45,9 +45,7 @@
             stroke="url(#sw-gradient)"></path>
         </svg>
         <div class="w-1/2 flex flex-col items-center justify-center mb-20">
-          <div class="w-full rounded-full avatar overflow-hidden">
-            <img alt="Roman Pretty" src="../assets/roman.jpeg" />
-          </div>
+          <img class="mask mask-squircle w-full" src="../assets/roman.jpeg" />
         </div>
       </div>
     </div>
@@ -92,18 +90,18 @@
         <!-- Row 1 - Left shifted (3 columns on tablet, 4 on desktop) -->
         <div class="grid grid-cols-3 lg:grid-cols-4 gap-6 mb-6 transform -translate-x-4 lg:-translate-x-16">
           <div class="aspect-square">
-            <ProjectCard title="University AI RAG System"
+            <ProjectCard title="AI-Chatbot for QMUL Students"
               description="AI-powered web scraping and RAG LLM system built for university module information."
               full-description="An advanced AI system that combines web scraping capabilities with Retrieval-Augmented Generation (RAG) and Large Language Models to provide intelligent responses about university modules and course information."
               image="/qmb.png" :technologies="['Python', 'RAG', 'LLM', 'Web Scraping', 'AI/ML']" variant="blue"
-              github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              github-link="https://github.com/Roman-Pretty/module-bot" link="https://qmodulebot.com" @click="openProjectModal" />
           </div>
 
           <div class="aspect-square">
             <ProjectCard title="Neural Network CIFAR-10 Classifier"
-              description="Deep learning model built on the CIFAR-10 dataset for image classification."
+              description="Deep learning model for image classification, with over 90% accuracy."
               full-description="A neural network implementation focused on the CIFAR-10 dataset, exploring various architectures and optimization techniques for image classification tasks."
-              image="/h24.png" :technologies="['Python', 'TensorFlow', 'CIFAR-10', 'Neural Networks']" variant="white"
+              image="/nn.png" :technologies="['Python', 'Pytorch', 'Torch', 'CIFAR-10', 'Neural Networks']" variant="white"
               github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
           </div>
 
@@ -111,16 +109,17 @@
             <ProjectCard title="SWRPG Datapads"
               description="Figma design project for Star Wars RPG interface with extensive user engagement."
               full-description="A comprehensive UI/UX design project created in Figma for Star Wars RPG datapads, featuring detailed interface designs that have attracted significant user engagement and community feedback."
-              image="/roman.jpeg" :technologies="['Figma', 'UI/UX Design', 'Star Wars RPG', 'Community Design']" variant="white"
-              github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              image="/roman.jpeg" :technologies="['Figma', 'UI/UX Design', 'Star Wars RPG', 'Community Design']"
+              variant="white" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
           </div>
 
           <div class="aspect-square">
             <ProjectCard title="X-Wing Unlimited Web App"
               description="Vue.js web application for X-Wing Unlimited game with active user base."
               full-description="A Vue.js-based web application supporting the X-Wing Unlimited tabletop game community, featuring game management tools and player resources with a growing user base."
-              image="/h24.jpg" :technologies="['Vue.js', 'JavaScript', 'Web Development', 'Gaming Community']" variant="white"
-              link="https://example.com" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              image="/h24.jpg" :technologies="['Vue.js', 'JavaScript', 'Web Development', 'Gaming Community']"
+              variant="white" link="https://example.com" github-link="https://github.com/Roman-Pretty"
+              @click="openProjectModal" />
           </div>
         </div>
 
@@ -130,31 +129,35 @@
             <ProjectCard title="Hobby24 Social Platform"
               description="Team-developed social networking application connecting hobby enthusiasts."
               full-description="A collaborative social networking application developed with a team, designed to connect people with shared hobbies and interests, featuring user profiles, community groups, and activity sharing."
-              image="/qmb.jpg" :technologies="['Team Development', 'Social Networking', 'Full-Stack', 'Community Features']" variant="white"
-              github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              image="/qmb.jpg"
+              :technologies="['Team Development', 'Social Networking', 'Full-Stack', 'Community Features']"
+              variant="white" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
           </div>
           <div class="aspect-square">
             <ProjectCard title="TourCast Weather App"
               description="Weather forecast application providing detailed meteorological information."
               full-description="A comprehensive weather forecast application that provides detailed meteorological information for travelers and outdoor enthusiasts, featuring location-based forecasts and weather alerts."
-              image="/qmb.jpg" :technologies="['Weather APIs', 'Location Services', 'Mobile Development', 'Data Visualization']" variant="white"
-              github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              image="/qmb.jpg"
+              :technologies="['Weather APIs', 'Location Services', 'Mobile Development', 'Data Visualization']"
+              variant="white" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
           </div>
 
           <div class="aspect-square">
-            <ProjectCard title="Enterprise Minecraft Mod Platform"
-              description="Massive-scale Java application with 25+ million downloads and active global community."
+            <ProjectCard title="Enterprise Scale Java Project"
+              description="Massive-scale Minecraft modification with 25 million downloads."
               full-description="A comprehensive Minecraft modification that has reached over 25 million downloads worldwide. Built with Java and Minecraft Forge, this project demonstrates enterprise-level software development with massive user adoption and community engagement."
-              image="/ed.png" :technologies="['Java', 'Minecraft Forge', 'Gradle', 'Community Management']" variant="blue"
-              github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              image="/ed.png" :technologies="['Java', 'Minecraft Forge', 'Gradle', 'Community Management']"
+              variant="blue" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
           </div>
 
           <div class="aspect-square">
             <ProjectCard title="Sheringham Acupuncture Site"
               description="Professional website for acupuncture practice with appointment booking system."
               full-description="A professional website developed for Sheringham Acupuncture practice, featuring appointment booking functionality, service information, and patient resources to support their healthcare business."
-              image="/holo.jpg" :technologies="['Healthcare Web Dev', 'Appointment System', 'Professional Services', 'Patient Management']" variant="white"
-              link="https://example.com" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+              image="/holo.jpg"
+              :technologies="['Healthcare Web Dev', 'Appointment System', 'Professional Services', 'Patient Management']"
+              variant="white" link="https://example.com" github-link="https://github.com/Roman-Pretty"
+              @click="openProjectModal" />
           </div>
         </div>
 
@@ -165,24 +168,27 @@
               <ProjectCard title="Holocron Mobile App"
                 description="React Native application for Star Wars RPG gameplay and character management."
                 full-description="A React Native mobile application designed for Star Wars RPG players, featuring character management, dice rolling, and game reference tools for enhanced tabletop gaming experiences."
-                image="/h24.png" :technologies="['React Native', 'Mobile Development', 'Gaming', 'Star Wars RPG']" variant="white"
-                github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+                image="/h24.png" :technologies="['React Native', 'Mobile Development', 'Gaming', 'Star Wars RPG']"
+                variant="white" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
             </div>
 
             <div class="aspect-square">
               <ProjectCard title="Exchange Rate Chrome Extension"
                 description="Browser extension for real-time currency exchange rate monitoring and conversion."
                 full-description="A Chrome extension that provides real-time currency exchange rates and conversion tools, featuring quick access to current market rates and conversion calculations for international transactions."
-                image="/qmb.png" :technologies="['Chrome Extension', 'JavaScript', 'APIs', 'Financial Data']" variant="white"
-                link="https://example.com" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+                image="/qmb.png" :technologies="['Chrome Extension', 'JavaScript', 'APIs', 'Financial Data']"
+                variant="white" link="https://example.com" github-link="https://github.com/Roman-Pretty"
+                @click="openProjectModal" />
             </div>
 
             <div class="aspect-square">
               <ProjectCard title="Holly-Eva Portfolio Site"
                 description="Professional portfolio website for musician with elegant design and media integration."
                 full-description="A custom-built portfolio website for musician Holly-Eva, featuring elegant design, media integration, and performance showcases to highlight her musical career and achievements."
-                image="/roman.jpeg" :technologies="['Web Development', 'Media Integration', 'Portfolio Design', 'Music Industry']" variant="white"
-                link="https://example.com" github-link="https://github.com/Roman-Pretty" @click="openProjectModal" />
+                image="/roman.jpeg"
+                :technologies="['Web Development', 'Media Integration', 'Portfolio Design', 'Music Industry']"
+                variant="white" link="https://example.com" github-link="https://github.com/Roman-Pretty"
+                @click="openProjectModal" />
             </div>
           </div>
         </div>
@@ -194,47 +200,50 @@
   </div>
 
   <!-- Awards Section -->
-  <div id="awards" class="min-h-[calc(50vh)] bg-base-300/80 pt-18 xl:px-64 px-10 font-serif pb-20">
-    <h1 class="w-full text-center text-2xl md:text-5xl mb-4">Awards</h1>
-    <h2 class="w-full text-center text-md md:text-2xl text-base-content/50 mb-18">Recognition I have received at university</h2>
+  <div id="awards" class="min-h-[calc(50vh)] bg-base-300/80 pt-18 xl:px-64 px-10 font-serif pb-20 relative">
+    <!-- Background Stars -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <Star class="absolute text-gray-500 opacity-10 w-16 h-16 left-1/5 top-24 transform -rotate-12"
+        fill="currentColor" />
+      <Star class="absolute text-gray-500 opacity-10 w-20 h-20 left-1/4 top-16 transform rotate-6"
+        fill="currentColor" />
+      <Star class="absolute text-gray-500 opacity-10 w-16 h-16 right-1/5 top-24 transform -rotate-12"
+        fill="currentColor" />
+      <Star class="absolute text-gray-500 opacity-10 w-20 h-20 right-1/4 top-16 transform rotate-6"
+        fill="currentColor" />
+    </div>
+
+    <h1 class="w-full text-center text-2xl md:text-5xl mb-4 relative z-10">Awards</h1>
+    <h2 class="w-full text-center text-md md:text-2xl text-base-content/50 mb-18 relative z-10">Recognition I have
+      received at
+      university</h2>
 
     <!-- Awards Grid -->
-    <div class="max-w-6xl mx-auto font-sans">
+    <div class="max-w-6xl mx-auto font-sans relative z-10">
       <div class="flex w-full flex-col lg:flex-row gap-0">
-        <!-- EECS Award 1 -->
+
+        <!-- QMUL Award -->
         <div class="flex-1">
-          <Award 
-            title="Demonstrator of the Year"
-            awarded-by="QMUL School of EECS"
-            variant="primary"
-          />
+          <Award title="Westfield Trust Prize" awarded-by="QMUL Core Awards Body" variant="primary" />
         </div>
 
         <!-- Divider 1 -->
-        <div class="divider divider-horizontal opacity-0"></div>
+        <div class="divider divider-horizontal opacity-50"></div>
 
 
         <!-- EECS Award 2 -->
         <div class="flex-1">
-          <Award 
-            title="Best Project Showcase"
-            awarded-by="QMUL School of EECS"
-            variant="primary"
-          />
+          <Award title="Best Project Showcase" awarded-by="QMUL School of EECS" variant="primary" />
         </div>
 
         <!-- Divider 2 -->
-          <div class="divider divider-horizontal"></div>
+        <div class="divider divider-horizontal opacity-50"></div>
 
-
-        <!-- QMUL Award -->
+        <!-- EECS Award 1 -->
         <div class="flex-1">
-          <Award 
-            title="Westfield Trust Prize"
-            awarded-by="QMUL Core Awards Body"
-            variant="primary"
-          />
+          <Award title="Demonstrator of the Year" awarded-by="QMUL School of EECS" variant="primary" />
         </div>
+
       </div>
     </div>
   </div>
@@ -376,8 +385,8 @@
               <Copy :size="20" />
             </button>
             <!-- Tooltip -->
-            <div v-if="showTooltip === 'email-copy'" 
-                 class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral text-neutral-content px-2 py-1 rounded text-xs whitespace-nowrap z-50">
+            <div v-if="showTooltip === 'email-copy'"
+              class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral text-neutral-content px-2 py-1 rounded text-xs whitespace-nowrap z-50">
               Copied!
             </div>
           </div>
@@ -403,8 +412,8 @@
               <Copy :size="20" />
             </button>
             <!-- Tooltip -->
-            <div v-if="showTooltip === 'linkedin-copy'" 
-                 class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral text-neutral-content px-2 py-1 rounded text-xs whitespace-nowrap z-50">
+            <div v-if="showTooltip === 'linkedin-copy'"
+              class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral text-neutral-content px-2 py-1 rounded text-xs whitespace-nowrap z-50">
               Copied!
             </div>
           </div>
@@ -425,12 +434,13 @@
             <ExternalLink :size="20" />
           </button>
           <div class="relative">
-            <button class="btn btn-square btn-ghost" @click="copyToClipboard('https://github.com/Roman-Pretty', 'github-copy')">
+            <button class="btn btn-square btn-ghost"
+              @click="copyToClipboard('https://github.com/Roman-Pretty', 'github-copy')">
               <Copy :size="20" />
             </button>
             <!-- Tooltip -->
-            <div v-if="showTooltip === 'github-copy'" 
-                 class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral text-neutral-content px-2 py-1 rounded text-xs whitespace-nowrap z-50">
+            <div v-if="showTooltip === 'github-copy'"
+              class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral text-neutral-content px-2 py-1 rounded text-xs whitespace-nowrap z-50">
               Copied!
             </div>
           </div>
@@ -473,7 +483,7 @@
 */
 
 <script lang="ts" setup>
-import { ArrowDownRight, Mail, Copy, ExternalLink, Linkedin, Github, FileUser, Download } from 'lucide-vue-next'
+import { ArrowDownRight, Mail, Copy, ExternalLink, Linkedin, Github, FileUser, Download, Star } from 'lucide-vue-next'
 import { ref } from 'vue'
 import ProjectCard from '../components/ProjectCard.vue'
 import ProjectModal from '../components/ProjectModal.vue'

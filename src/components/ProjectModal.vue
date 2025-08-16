@@ -55,7 +55,7 @@ const openLink = (url: string): void => {
 
 <template>
   <dialog :id="modalId" class="modal">
-    <div class="modal-box max-w-2xl w-full max-h-[90vh]">
+    <div class="modal-box max-w-2xl w-full max-h-[90vh] font-sans">
       <!-- Header -->
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-2xl font-bold">{{ project?.title || 'Project Details' }}</h2>
@@ -94,7 +94,7 @@ const openLink = (url: string): void => {
             <span 
               v-for="tech in project.technologies" 
               :key="tech"
-              class="badge badge-primary"
+              class="badge badge-soft badge-primary cursor-default"
             >
               {{ tech }}
             </span>
@@ -106,7 +106,7 @@ const openLink = (url: string): void => {
           <button 
             v-if="project.link"
             @click="openLink(project.link)"
-            class="btn btn-primary gap-2"
+            class="btn  gap-2"
           >
             <ExternalLink :size="18" />
             View Project
@@ -114,7 +114,7 @@ const openLink = (url: string): void => {
           <button 
             v-if="project.githubLink"
             @click="openLink(project.githubLink)"
-            class="btn btn-outline gap-2"
+            class="btn gap-2"
           >
             <Github :size="18" />
             View Code
