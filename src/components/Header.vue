@@ -51,7 +51,7 @@
 
     <!-- Right section: Contact button -->
     <div class="navbar-end">
-      <a class="btn btn-primary text-base-100" href="#contact">Contact Me</a>
+      <a class="btn btn-primary text-base-100" href="mailto:romanjjpretty@gmail.com">Contact Me</a>
     </div>
   </nav>
 </template>
