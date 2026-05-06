@@ -73,7 +73,6 @@ const career = [
   { year: '2026, present', title: 'Software Developer', org: 'Efficura' },
   { year: '2023, 2026', title: 'Demonstrator Teaching Assistant', org: 'Queen Mary University of London' },
   { year: '2024, 2025', title: 'Activity Leader', org: 'MCS Projects' },
-  { year: '2022', title: 'Gap-year roles', org: 'Starlings of Holt' },
   { year: '2017, 2021', title: 'Martial Arts Instructor', org: 'Tsunami Martial Arts' }
 ]
 
