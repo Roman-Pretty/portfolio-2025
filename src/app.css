@@ -1,55 +1,172 @@
 /**
- * Application Styles
- * 
- * Main CSS file that imports framework styles and defines
- * global application styling and custom utilities.
+ * Application Styles — modern minimal · white + glass
  */
 
-/* Import Tailwind CSS framework */
 @import "tailwindcss";
 
-/* Import DaisyUI component library (forced light mode) */
 @plugin "daisyui";
 
-/**
- * DaisyUI Theme Configuration
- * Defines custom light theme with brand colors
- */
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #f9872e;    /* Orange primary color */
-  --color-secondary: #bedbff;  /* Light blue secondary color */
+  --color-base-100: #ffffff;
+  --color-base-200: #fafafa;
+  --color-base-300: #f3f3f2;
+  --color-base-content: #111111;
+  --color-primary: #f9872e;
+  --color-secondary: #9bb5b6;
+  --color-accent: #111111;
+  --radius-box: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-selector: 0.25rem;
 }
 
-/**
- * Global Layout Styles
- * Enables smooth scrolling behavior across the application
- * Forces light theme at root level
- */
-html, body, main {
-  scroll-behavior: smooth;
-}
-
-/* Force light theme for entire application */
 :root {
   color-scheme: light;
+  --ink: #111111;
+  --ink-muted: #5e5e5e;
+  --ink-faint: #9c9c98;
+  --canvas: #ffffff;
+  --canvas-2: #fafafa;
+  --canvas-3: #f3f3f2;
+  --rule: #ececec;
+  --accent-orange: #f9872e;
+  --accent-orange-soft: #fde7d3;
+  --accent-teal: #6da9aa;
+  --accent-teal-soft: #d8e7e7;
+  --accent-indigo: #5566ff;
+  --accent-amber: #f5b740;
+  --glass: rgba(255, 255, 255, 0.55);
+  --glass-strong: rgba(255, 255, 255, 0.72);
 }
 
-/* Ensure DaisyUI uses light theme */
-[data-theme] {
-  color-scheme: light;
+html, body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
 }
 
-html[data-theme="light"], 
-html[data-theme="light"] * {
-  color-scheme: light !important;
+/* Pointer cursor for all interactive elements */
+button,
+a,
+[role="button"],
+summary,
+label[for],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"],
+select {
+  cursor: pointer;
 }
 
-/**
- * Grainy Texture Utility Class
- * Applies a subtle noise texture background for visual interest
- */
-.grainy {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAD8/vz08vT09vT8+vzs7uxH16TeAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAuFJREFUOI0Vk+3NLiEIRG1B8ClAYAsQ2AIEt4D9ePtv5Xp/mZgYJ2fOFJKEfInkVWY2aglmQFkimRTV7MblYyVqD7HXyhKsSuPX12MeDhRHLtGvRG+P+B/S0Vu4OswR9tmvwNPyhdCDbVayJGads/WiUWcjCvCnruTBNHS9gmX2VzVbk7ZvB1gb1hkWFGl+A/n+/FowcO34U/XvKqZ/fHY+6vgRfU92XrOBUbGeeDfQmjWjdrK+frc6FdGReQhfSF5JvR29O2QrfNw1huTwlgsyXLo0u+5So82sgv7tsFZR2nxB6lXiquHrfD8nfYZ9SeT0LiuvSoVrxGY16pCNRZKqvwWsn5OHypPBELzohMCaRaa0ceTHYqe7X/gfJEEtKFbJpWoNqO+aS1cuTykGPpK5Ga48m6L3NefTr013KqYBQu929iP1oQ/7UwSR+i3zqruUmT84qmhzLpxyj7pr9kg7LKvqaXxZmdpn+6o8sHqSqojy02gU3U8q9PnpidiaLks0mbMYz+q2uVXsoBQ8bfURULYxRgZVYCHMv9F4OA7qxT2NPPpvGQ/sTDH2yznKh7E2AcErfcNsaIoN1izzbJiaY63x4QjUFdBSvDCvugPpu5xDny0jzEeuUQbcP1aGT9V90uixngTRLYNEIIZ6yOF1H8tm7rj2JxiefsVy53zGVy3ag5uuPsdufYOzYxLRxngKe7nhx3VAq54pmz/DK9/Q3aDam2Yt3hNXB4HuU87jKNd/CKZn77Qdn5QkXPfqSkhk7hGOXXB+7v09KbBbqdvxGqa0AqfK/atIrL2WXdAgXAJ43Wtwe/aIoacXezeGPMlhDOHDbSfHnaXsL2QzbT82GRwZuezdwcoWzx5pnOnGMUdHuiY7lhdyWzWiHnucLZQxYStMJbtcydHaQ6vtMbe0AcDbxG+QG14AL94xry4297xpy9Cpf1OoxZ740gHDfrK+gtsy0xabwJmfgtCeii79B6aj0SJeLbd7AAAAAElFTkSuQmCC);
+button:disabled,
+[role="button"][aria-disabled="true"],
+input:disabled {
+  cursor: not-allowed;
 }
+
+html, body, main { scroll-behavior: smooth; }
+
+::selection { background: var(--accent-orange); color: #fff; }
+
+/* Typographic helpers */
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+
+.display {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--ink);
+}
+
+.numeric { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+.hairline { border-color: var(--rule); }
+.muted { color: var(--ink-muted); }
+.faint { color: var(--ink-faint); }
+
+/* Glass surface */
+.glass {
+  background: var(--glass);
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+}
+.glass-strong {
+  background: var(--glass-strong);
+  backdrop-filter: saturate(200%) blur(22px);
+  -webkit-backdrop-filter: saturate(200%) blur(22px);
+}
+
+/* Halftone dotted accent */
+.halftone {
+  background-image: radial-gradient(circle at center, #111111 1.4px, transparent 1.6px);
+  background-size: 8px 8px;
+  -webkit-mask-image: radial-gradient(ellipse at 35% 50%, black 0%, black 35%, transparent 70%);
+          mask-image: radial-gradient(ellipse at 35% 50%, black 0%, black 35%, transparent 70%);
+}
+
+.halftone-soft {
+  background-image: radial-gradient(circle at center, rgba(17,17,17,0.5) 1px, transparent 1.2px);
+  background-size: 7px 7px;
+}
+
+/* Subtle grain (optional — used sparingly) */
+.grainy { position: relative; }
+.grainy::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.link-quiet { color: var(--ink); transition: color 0.2s ease; }
+.link-quiet:hover { color: var(--accent-orange); }
+
+.rule { height: 1px; background: var(--rule); width: 100%; }
+
+/* Decorative ambient gradients (very soft) */
+.ambient {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.55;
+}
+.ambient-orange { background: radial-gradient(circle, rgba(249,135,46,0.40), transparent 70%); }
+.ambient-teal { background: radial-gradient(circle, rgba(109,169,170,0.45), transparent 70%); }
+.ambient-amber { background: radial-gradient(circle, rgba(245,183,64,0.40), transparent 70%); }
+.ambient-indigo { background: radial-gradient(circle, rgba(85,102,255,0.30), transparent 70%); }
+
+/* Section eyebrow with colored index pill */
+.idx-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6rem;
+  padding: 0 0.4rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: var(--accent-orange);
+  font-variant-numeric: tabular-nums;
+}
+.idx-pill.teal { background: var(--accent-teal); }
+.idx-pill.amber { background: var(--accent-amber); color: #1f1500; }
+.idx-pill.indigo { background: var(--accent-indigo); }
+.idx-pill.ink { background: var(--ink); }

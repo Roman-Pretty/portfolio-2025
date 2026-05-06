@@ -1,64 +1,52 @@
 <!--
-  Award Component
-  
-  A reusable component for displaying individual awards with
-  consistent styling and responsive design.
+  Award row — colored accent
 -->
 <script setup lang="ts">
-/**
- * Award component props interface
- */
+import { ArrowUpRight, Award as AwardIcon } from 'lucide-vue-next';
+
 interface AwardProps {
-  /** Award title */
   title: string;
-  /** Organization that granted the award */
   awardedBy: string;
-  /** Color variant for the award box */
-  variant?: 'orange' | 'primary';
-  /** Link URL to open when award is clicked */
+  year?: string;
+  variant?: 'orange' | 'teal' | 'amber';
   link?: string;
 }
 
-/**
- * Component props definition
- */
 const props = defineProps<AwardProps>();
 
-/**
- * Generate CSS classes for the award based on variant
- * 
- * @returns Combined CSS class string
- */
-const getAwardClasses = (): string => {
-  const baseClasses = "shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 h-32 flex items-center justify-center border";
-  
-  const variantClasses = {
-    orange: "bg-primary text-white border-orange-500",
-    primary: "bg-white border-gray-200 text-slate-800"
-  };
-  
-  return `${baseClasses} ${variantClasses[props.variant || 'primary']}`;
+const handleClick = (): void => {
+  if (props.link) window.open(props.link, '_blank');
 };
 
-/**
- * Handle award click - open link in new tab if provided
- */
-const handleClick = (): void => {
-  if (props.link) {
-    window.open(props.link, '_blank');
+const accent = (): string => {
+  switch (props.variant) {
+    case 'teal': return 'text-[var(--accent-teal)]'
+    case 'amber': return 'text-[var(--accent-amber)]'
+    default: return 'text-[var(--accent-orange)]'
   }
-};
+}
 </script>
 
 <template>
-  <div :class="getAwardClasses()" @click="handleClick">
-    <div class="text-center">
-      <h3 class="text-lg font-bold">{{ title }}</h3>
-      <p class="text-sm opacity-70 mt-1">Awarded by {{ awardedBy }}</p>
+  <div
+    @click="handleClick"
+    :class="[
+      'group py-8 lg:py-9 grid grid-cols-12 gap-4 items-baseline transition-colors',
+      link ? 'cursor-pointer hover:bg-[var(--canvas)]/60' : ''
+    ]"
+  >
+    <div class="col-span-2 lg:col-span-1 eyebrow numeric flex items-center gap-2">
+      <AwardIcon :size="14" :class="accent()" />
+      <span>{{ year || '' }}</span>
+    </div>
+    <div class="col-span-10 lg:col-span-7">
+      <h3 class="text-xl lg:text-2xl font-medium tracking-tight group-hover:text-[var(--ink)]">{{ title }}</h3>
+      <p class="mt-1 text-sm muted">{{ awardedBy }}</p>
+    </div>
+    <div class="hidden lg:block lg:col-span-3 text-sm muted">Recognition</div>
+    <div class="col-span-12 lg:col-span-1 flex justify-start lg:justify-end">
+      <ArrowUpRight v-if="link" :size="18"
+        :class="['muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5', `group-hover:${accent()}`]" />
     </div>
   </div>
 </template>
-
-<style scoped>
-/* Component-specific styles if needed */
-</style>

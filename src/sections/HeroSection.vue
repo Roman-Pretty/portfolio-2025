@@ -1,55 +1,102 @@
 <!--
-  Hero Section Component
-  
-  The landing section with personal introduction and profile image.
+  Hero Section — name + photo, vertically centered (LEFT alignment)
 -->
 <template>
-  <div class="hero md:min-h-[calc(100%-4rem)] bg-base-200">
-    <div class="hero-content text-center font-serif flex-col-reverse lg:flex-row mt-28 lg:mt-0">
-      <div class="flex-1 flex flex-col items-center">
-        <h1 class="text-xl lg:text-5xl lg:max-w-4/5">Hey there, I'm <span>Roman</span>, a
-          <span class="relative z-2 text-nowrap">Computer Science
-            <div class="absolute top-4 lg:top-8 left-0 w-full h-2 lg:h-5 bg-blue-200 -z-1 -skew-1" />
-          </span>
-          student based in London
-        </h1>
-        <p class="py-6 text-base-content/50 lg:max-w-4/5">
-          I'm a Masters student at Queen Mary University of London, consistently achieving First
-          Class grades in all completed years and modules.
-          <br /><br />
-          I have a strong interest in software development and have experience developing applications
-          with a variety of frameworks and toolsets.
-        </p>
-        <div class="lg:w-4/5 flex justify-end  mb-8 lg:mb-0">
-          <a href="#about"
-            class="font-sans pb-2 hover:pb-1 hover:mb-1 hover:text-blue-400  border-b-1 flex gap-2 items-center">Find
-            out more
-            <ArrowDownRight :size="20" />
-          </a>
+  <section id="top" class="relative min-h-screen w-full overflow-hidden bg-[var(--canvas)] flex flex-col">
+    <div class="ambient ambient-orange w-[520px] h-[520px] -top-40 -right-32" aria-hidden="true"></div>
+    <div class="ambient ambient-teal w-[460px] h-[460px] top-[40%] -left-40" aria-hidden="true"></div>
+
+    <div
+      class="pointer-events-none absolute inset-0 opacity-[0.06]"
+      style="background-image: radial-gradient(circle at center, #111 1.2px, transparent 1.4px); background-size: 14px 14px;"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative z-10 flex-1 flex items-center max-w-7xl w-full mx-auto px-6 lg:px-10 pt-24 pb-16">
+      <div class="w-full grid grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div class="col-span-12 lg:col-span-8 order-2 lg:order-1 min-w-0">
+          <h1
+            v-motion
+            :initial="{ opacity: 0, y: 24 }"
+            :visibleOnce="{ opacity: 1, y: 0, transition: { duration: 900, delay: 150 } }"
+            class="display whitespace-nowrap leading-[0.95]"
+            style="font-size: clamp(2.75rem, 8.4vw, 7.25rem);"
+          >
+            Roman Pretty<span class="text-[var(--accent-orange)]">.</span>
+          </h1>
+
+          <p
+            v-motion
+            :initial="{ opacity: 0, y: 16 }"
+            :visibleOnce="{ opacity: 1, y: 0, transition: { duration: 800, delay: 350 } }"
+            class="mt-8 max-w-xl text-base lg:text-lg muted leading-relaxed"
+          >
+            Software engineer and designer based in London. I build products end to end,
+            from interface through to the data layer.
+          </p>
+
+          <div
+            v-motion
+            :initial="{ opacity: 0, y: 16 }"
+            :visibleOnce="{ opacity: 1, y: 0, transition: { duration: 800, delay: 500 } }"
+            class="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-y-5 gap-x-8 max-w-xl"
+          >
+            <div>
+              <div class="eyebrow mb-1">Role</div>
+              <div class="text-sm">Developer</div>
+            </div>
+            <div>
+              <div class="eyebrow mb-1">Based</div>
+              <div class="text-sm">London, UK</div>
+            </div>
+            <div>
+              <div class="eyebrow mb-1">Focus</div>
+              <div class="text-sm">Product · Engineering</div>
+            </div>
+          </div>
+
+          <div
+            v-motion
+            :initial="{ opacity: 0, y: 16 }"
+            :visibleOnce="{ opacity: 1, y: 0, transition: { duration: 800, delay: 700 } }"
+            class="mt-12 flex flex-wrap items-center gap-6"
+          >
+            <a href="#work" class="group inline-flex items-center gap-2 text-sm link-quiet">
+              Selected work
+              <ArrowDownRight :size="16" class="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition" />
+            </a>
+            <a href="#contact" class="group inline-flex items-center gap-2 text-sm muted link-quiet">
+              Get in touch
+              <ArrowRight :size="16" class="group-hover:translate-x-1 transition" />
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="flex-1 flex flex-col items-center justify-center relative z-2">
-        <svg class="hidden lg:block absolute -z-1 -right-6 -top-28" id="sw-js-blob-svg" viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg" version="1.1">
-          <defs>
-            <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
-              <stop id="stop1" stop-color="rgba(248, 117, 55, 1)" offset="0%"></stop>
-              <stop id="stop2" stop-color="rgba(251, 168, 31, 1)" offset="100%"></stop>
-            </linearGradient>
-          </defs>
-          <path fill="url(#sw-gradient)"
-            d="M24.1,-25.5C30.1,-23.6,33.1,-15,33.8,-6.6C34.6,1.9,33.1,10.1,29.5,17.8C25.9,25.5,20.2,32.6,13.4,33.9C6.5,35.1,-1.4,30.4,-10.2,27.5C-18.9,24.5,-28.5,23.2,-34.6,17.6C-40.7,12,-43.3,1.9,-38.6,-3.7C-33.9,-9.3,-21.8,-10.5,-14.2,-12C-6.5,-13.6,-3.3,-15.6,2.9,-19C9,-22.5,18.1,-27.4,24.1,-25.5Z"
-            width="100%" height="100%" transform="translate(50 50)" stroke-width="0" style="transition: 0.3s;"
-            stroke="url(#sw-gradient)"></path>
-        </svg>
-        <div class="w-1/2 flex flex-col items-center justify-center mb-20">
-          <img class="mask mask-squircle w-full" src="../assets/roman.jpeg" />
+
+        <div
+          class="col-span-12 lg:col-span-4 order-1 lg:order-2 flex justify-center lg:justify-end"
+          v-motion
+          :initial="{ opacity: 0, scale: 0.96, y: 16 }"
+          :visibleOnce="{ opacity: 1, scale: 1, y: 0, transition: { duration: 900, delay: 250 } }"
+        >
+          <div class="relative w-full max-w-[360px] aspect-square">
+            <img src="/roman.jpeg" alt="Roman Pretty"
+              class="w-full h-full object-cover grayscale contrast-[1.05]" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <div class="relative z-10 max-w-7xl w-full mx-auto px-6 lg:px-10 pb-8">
+      <div class="rule mb-6"></div>
+      <div class="flex flex-wrap items-center justify-between gap-3 text-xs faint numeric">
+        <span>© {{ new Date().getFullYear() }} Roman Pretty</span>
+        <span class="hidden sm:inline">Software · Design · Product</span>
+        <span class="inline-flex items-center gap-1">Scroll <ArrowDownRight :size="12" /></span>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts" setup>
-import { ArrowDownRight } from 'lucide-vue-next'
+import { ArrowDownRight, ArrowRight } from 'lucide-vue-next'
 </script>

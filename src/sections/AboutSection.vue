@@ -1,34 +1,73 @@
 <!--
-  About Section Component
-  
-  Personal information and background section.
+  About Section — MIDDLE alignment
 -->
 <template>
-  <div class="md:py-18 py-6 lg:px-64 font-serif relative" id="about">
-    <h1 class="w-full text-center  text-2xl md:text-5xl mb-4">About Me</h1>
-    <h2 class="w-full text-center text-md md:text-2xl text-base-content/50 pb-6 md:mb-18">A little bit about who I am</h2>
-    <div class="w-1/2 h-2 bg-secondary hidden md:flex absolute top-48 skew-1/2 left-1/4" />
-    <div class="w-1/2 h-2 bg-primary/60 hidden md:flex absolute top-[11.8rem] skew-[0.3] left-1/4" />
+  <section id="about" class="relative bg-[var(--canvas-2)] overflow-hidden py-24 lg:py-36">
+    <div class="ambient ambient-teal w-[520px] h-[520px] -top-32 left-1/2 -translate-x-1/2" aria-hidden="true"></div>
 
-    <p class="text-base-content/50 lg:px-0 px-8 lg:columns-2 columns-1 gap-6 text-justify">
-      I'm a Computer Science MSci student at Queen Mary University of
-      London, currently in my final year and on track to graduate with a first-class degree. I have a strong
-      interest in Software Development and Design, and I've enjoyed modules like
-      Web Programming, Neural Networks and Big Data Processing. Throughout my studies, I've enjoyed working on
-      practical tasks, and believe the best way to learn is by doing.
-      <br class="flex lg:hidden" /> <br class="flex lg:hidden" />
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 24 }"
+        :visibleOnce="{ opacity: 1, y: 0, transition: { duration: 800 } }"
+        class="text-center mb-16"
+      >
+        <h2 class="display text-4xl md:text-6xl lg:text-7xl">
+          Engineer, <span class="italic font-serif font-light text-[var(--accent-indigo)]">designer</span>.
+        </h2>
+      </div>
 
-      I've gained a deeper understanding of my degree through hands-on experience as a Teaching Assistant and STEM
-      Activity Leader
-      which has helped me develop strong leadership, mentoring, and communication skills. I've led projects using React,
-      Java,
-      and Python, such as a an AI Webscraping Chatbot and a series of game modifications. Outside of work,
-      I enjoy martial-arts, studying Spanish, and reading or listening to audiobooks.
-    </p>
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 24 }"
+        :visibleOnce="{ opacity: 1, y: 0, transition: { duration: 900, delay: 150 } }"
+        class="max-w-6xl mx-auto"
+      >
+        <div class="grid md:grid-cols-3 gap-x-12 gap-y-8 text-[15px] leading-relaxed muted">
+          <p>
+            I'm Roman, a software engineer and designer based in London. I build products
+            end to end, from interface and interaction through to the data layer and the
+            team processes that keep it moving. I spend most of my time writing code, but
+            I'm equally at home in design tools or running a planning session.
+          </p>
+          <p>
+            I studied Computer Science (MSci) at Queen Mary University of London, graduating
+            with a first-class degree. I've shipped across mobile and web: a 27M-download
+            Java ecosystem, RAG-based chatbots, Vue apps used by thousands. Now I'm loving my job
+            at efficura, building a credit deal platform for private credit.
+          </p>
+          <p>
+            UX design is something I love. Working out why a flow feels
+            wrong, then making it feel like nothing at all, is more important than a pretty UI. Outside work I train martial arts, study Spanish and hang out with friends (because I'm generic).
+          </p>
+        </div>
 
-  </div>
+        <div class="mt-12 flex flex-wrap justify-center gap-x-2 gap-y-2 text-xs">
+          <span v-for="(tag, i) in tags" :key="tag"
+            :class="['px-3 py-1 border rounded-full transition cursor-default', tagStyle(i)]">
+            {{ tag }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts" setup>
-// No additional imports needed for this section
+const tags = [
+  'TypeScript', 'Vue', 'React', 'Node', 'Python',
+  'UX', 'Design Systems', 'Product', 'FinTech',
+  'ML / RAG', 'Mobile'
+]
+
+const tagStyle = (i: number): string => {
+  const palette = [
+    'border-[var(--rule)] muted hover:text-[var(--ink)] hover:border-[var(--ink)]',
+    'border-[var(--accent-orange-soft)] bg-[var(--accent-orange-soft)] text-[var(--accent-orange)]',
+    'border-[var(--rule)] muted hover:text-[var(--ink)] hover:border-[var(--ink)]',
+    'border-[var(--accent-teal-soft)] bg-[var(--accent-teal-soft)] text-[var(--accent-teal)]',
+    'border-[var(--rule)] muted hover:text-[var(--ink)] hover:border-[var(--ink)]',
+  ]
+  return palette[i % palette.length]
+}
 </script>

@@ -28,7 +28,7 @@ defineProps<MessageProps>();
       <div class="w-10 rounded-full">
         <img
             alt="Roman Pretty"
-            src="../assets/roman.jpeg"/>
+            src="/roman.jpeg"/>
       </div>
     </div>
     <div class="chat-bubble">{{ message }}</div>

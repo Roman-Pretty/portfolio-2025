@@ -55,75 +55,65 @@ const openLink = (url: string): void => {
 
 <template>
   <dialog :id="modalId" class="modal">
-    <div class="modal-box max-w-2xl w-full max-h-[90vh] font-sans">
-      <!-- Header -->
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold">{{ project?.title || 'Project Details' }}</h2>
-        <form method="dialog">
-          <button class="btn btn-ghost btn-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </form>
-      </div>
-      
-      <!-- Content -->
-      <div class="space-y-6" v-if="project">
+    <div class="modal-box max-w-3xl w-full max-h-[90vh] bg-[var(--canvas)] text-[var(--ink)] rounded-sm border border-[var(--rule)] shadow-2xl p-0 overflow-hidden">
+      <div class="p-8 lg:p-10" v-if="project">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-8 gap-4">
+          <div>
+            <div class="eyebrow mb-2">Project</div>
+            <h2 class="display text-3xl lg:text-4xl">{{ project.title }}</h2>
+          </div>
+          <form method="dialog">
+            <button class="p-2 -m-2 muted hover:text-[var(--ink)]" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </form>
+        </div>
+
         <!-- Image -->
-        <div>
-          <img 
-            :src="project.image || '/api/placeholder/600/300'" 
+        <div class="aspect-[16/9] overflow-hidden bg-[var(--canvas-2)] border border-[var(--rule)] mb-8">
+          <img
+            :src="project.image || '/api/placeholder/600/300'"
             :alt="project.title"
-            class="w-full h-64 object-cover rounded-lg"
+            class="w-full h-full object-cover"
           />
         </div>
-        
+
         <!-- Description -->
-        <div>
-          <h3 class="text-lg font-semibold mb-3">About this project</h3>
-          <p class="text-base-content/70 leading-relaxed">
+        <div class="mb-8">
+          <div class="eyebrow mb-3">About</div>
+          <p class="muted leading-relaxed text-[15px]">
             {{ project.fullDescription || project.description }}
           </p>
         </div>
-        
+
         <!-- Technologies -->
-        <div v-if="project.technologies && project.technologies.length > 0">
-          <h3 class="text-lg font-semibold mb-3">Tags and Technologies</h3>
-          <div class="flex flex-wrap gap-2">
-            <span 
-              v-for="tech in project.technologies" 
-              :key="tech"
-              class="badge badge-soft badge-primary cursor-default"
-            >
-              {{ tech }}
-            </span>
+        <div v-if="project.technologies && project.technologies.length" class="mb-8">
+          <div class="eyebrow mb-3">Stack</div>
+          <div class="flex flex-wrap gap-x-2 gap-y-2 text-xs">
+            <span v-for="tech in project.technologies" :key="tech"
+              class="px-3 py-1 border border-[var(--rule)] rounded-full muted">{{ tech }}</span>
           </div>
         </div>
-        
+
         <!-- Links -->
-        <div class="modal-action">
-          <button 
-            v-if="project.link"
-            @click="openLink(project.link)"
-            class="btn  gap-2"
-          >
-            <ExternalLink :size="18" />
-            View Project
+        <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--rule)]">
+          <button v-if="project.link" @click="openLink(project.link)"
+            class="inline-flex items-center gap-2 text-sm link-quiet">
+            <ExternalLink :size="16" /> View project
           </button>
-          <button 
-            v-if="project.githubLink"
-            @click="openLink(project.githubLink)"
-            class="btn gap-2"
-          >
-            <Github :size="18" />
-            View Code
+          <button v-if="project.githubLink" @click="openLink(project.githubLink)"
+            class="inline-flex items-center gap-2 text-sm link-quiet">
+            <Github :size="16" /> Source
           </button>
-          <form method="dialog">
-            <button class="btn">Close</button>
+          <form method="dialog" class="ml-auto">
+            <button class="text-sm muted hover:text-[var(--ink)]">Close</button>
           </form>
         </div>
       </div>
     </div>
+    <form method="dialog" class="modal-backdrop"><button>close</button></form>
   </dialog>
 </template>

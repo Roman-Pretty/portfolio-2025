@@ -1,141 +1,95 @@
 <!--
-  Project Card Component
-  
-  A reusable card component for displaying project information
-  with hover effects, color variants, and action buttons.
+  Project Card — editorial card with color hover
 -->
 <script setup lang="ts">
-import { ref } from 'vue';
-import { Github, Eye } from 'lucide-vue-next';
+import { Github, ArrowUpRight } from 'lucide-vue-next';
 
-/**
- * Project card component props interface
- */
 interface ProjectCardProps {
-  /** Project title */
   title: string;
-  /** Short project description */
   description: string;
-  /** Extended project description for modal */
   fullDescription?: string;
-  /** Project image URL */
   image: string;
-  /** Live demo/preview link */
   link?: string;
-  /** GitHub repository link */
   githubLink?: string;
-  /** List of technologies used */
   technologies?: string[];
-  /** Visual style variant */
   variant?: 'white' | 'blue' | 'orange' | 'purple' | 'green';
-  /** Card size variant */
   size?: 'small' | 'medium' | 'large';
+  index?: number;
 }
 
-/**
- * Component props definition
- */
 const props = defineProps<ProjectCardProps>();
 
-/**
- * Component events definition
- */
 const emit = defineEmits<{
-  /** Emitted when card is clicked */
   click: [project: ProjectCardProps];
 }>();
 
-/**
- * Hover state tracking
- */
-const isHovered = ref(false);
+const handleClick = (): void => emit('click', props);
 
-/**
- * Generate CSS classes for the card based on variant
- * 
- * @returns Combined CSS class string
- */
-const getCardClasses = (): string => {
-  const baseClasses = "shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 w-full h-full";
-  
-  const variantClasses = {
-    white: "bg-white text-gray-800 border border-gray-200",
-    blue: "bg-blue-500 text-white",
-    orange: "bg-orange-500 text-white",
-    purple: "bg-purple-500 text-white",
-    green: "bg-green-500 text-white"
-  };
-  
-  return `${baseClasses} ${variantClasses[props.variant || 'white']}`;
-};
-
-/**
- * Handle card click event
- * Emits the click event with project data
- */
-const handleClick = (): void => {
-  emit('click', props);
-};
-
-/**
- * Open external link in new tab
- * 
- * @param url - URL to open
- */
-const openLink = (url: string): void => {
+const openLink = (e: Event, url: string): void => {
+  e.stopPropagation();
   window.open(url, '_blank');
 };
 </script>
 
 <template>
-  <div 
-    :class="getCardClasses()" 
+  <article
+    class="group relative cursor-pointer flex flex-col h-full"
     @click="handleClick"
-    @mouseenter="isHovered = true"
-    @mouseleave="isHovered = false"
   >
-    <div class="p-2 md:p-4 h-full flex flex-col justify-between font-sans">
-      <div>
-        <h3 class="text-sm md:text-lg font-bold mb-1 md:mb-2" 
-            :class="variant === 'white' ? 'text-gray-800' : 'text-white'">
+    <!-- Image -->
+    <div class="relative w-full aspect-[4/3] overflow-hidden bg-[var(--canvas-2)] border border-[var(--rule)] rounded-sm">
+      <img
+        v-if="image"
+        :src="image"
+        :alt="title"
+        class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.03]"
+        loading="lazy"
+      />
+      <div v-else class="absolute inset-0 halftone-soft opacity-60"></div>
+
+      <!-- Index badge -->
+      <div v-if="index !== undefined" class="absolute top-3 left-3 eyebrow numeric glass-strong px-2 py-1 rounded-sm">
+        {{ String(index).padStart(2, '0') }}
+      </div>
+
+      <!-- Hover arrow -->
+      <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-[var(--accent-orange)] text-white flex items-center justify-center opacity-0 translate-x-1 -translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 shadow-md">
+        <ArrowUpRight :size="16" />
+      </div>
+    </div>
+
+    <!-- Caption -->
+    <div class="pt-4 flex flex-col gap-2 flex-1">
+      <div class="flex items-start justify-between gap-3">
+        <h3 class="text-[15px] font-medium leading-snug text-[var(--ink)] group-hover:text-[var(--accent-orange)] transition">
           {{ title }}
         </h3>
-        <p class="text-xs md:text-sm opacity-80 line-clamp-3">
-          {{ description }}
-        </p>
-      </div>
-      
-      <div class="mt-2 md:mt-4">
-        <div class="flex gap-1 md:gap-2">
-          <button 
-            v-if="link"
-            @click.stop="openLink(link)"
-            class="btn btn-xs md:btn-sm"
-            :class="variant === 'white' ? 'btn-outline/50' : 'btn-outline/50'"
-          >
-            <Eye :size="12" class="md:hidden" />
-            <Eye :size="16" class="hidden md:block" />
-          </button>
-          <button 
+        <div class="flex items-center gap-1 shrink-0 mt-0.5">
+          <button
             v-if="githubLink"
-            @click.stop="openLink(githubLink)"
-            class="btn btn-xs md:btn-sm"
-            :class="variant === 'white' ? 'btn-outline/50' : 'btn-outline/50'"
+            @click="openLink($event, githubLink)"
+            class="p-1 muted hover:text-[var(--ink)] transition"
+            :aria-label="`${title} on GitHub`"
           >
-            <Github :size="12" class="md:hidden" />
-            <Github :size="16" class="hidden md:block" />
+            <Github :size="14" />
           </button>
         </div>
       </div>
+      <p class="text-xs muted leading-relaxed line-clamp-2">{{ description }}</p>
+      <div v-if="technologies && technologies.length" class="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[10px] uppercase tracking-wider faint">
+        <span v-for="(t, i) in technologies.slice(0, 3)" :key="t">
+          {{ t }}<span v-if="i < Math.min(technologies.length, 3) - 1" class="ml-3 text-[var(--rule)]">·</span>
+        </span>
+      </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <style scoped>
-.line-clamp-3 {
+.line-clamp-2 {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

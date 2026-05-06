@@ -1,115 +1,85 @@
 <!--
-  Timeline Section Component
-  
-  Displays education and career timeline information.
+  Timeline Section — LEFT alignment
 -->
 <template>
-  <div class="w-full min-h-[calc(100%-4rem)] bg-base-100 flex flex-col items-center font-sans md:py-18 py-6">
-    <h1 class=" text-2xl md:text-5xl font-serif mb-4 lg:pl-64 pl-4 lg:self-start ">Timelines</h1>
-    <h2 class="font-serif mb-4 pl-4 lg:pl-64 lg:self-start text-md md:text-2xl text-base-content/50">My education and
-      work
-      history</h2>
-    <p class="w-full text-center font-xs font-semibold mt-6 md:mt-18">Education</p>
-    <ul class="timeline timeline-vertical lg:timeline-horizontal px-6 lg:px-0">
-      <li>
-        <div class="timeline-start">2019</div>
-        <div class="timeline-middle text-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-        <div class="timeline-end timeline-box">Graduated Sheringham High School with 10 GCSEs</div>
-        <hr class="bg-primary" />
-      </li>
-      <li>
-        <hr class="bg-primary" />
-        <div class="timeline-start">2021</div>
-        <div class="timeline-middle text-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-        <div class="timeline-end timeline-box text-wrap">Graduated Wymondham College with A*A*A, grade 8 LAMDA and an
-          A in the EPQ
-        </div>
-        <hr class="bg-primary" />
-      </li>
-      <li>
-        <hr />
-        <div class="timeline-start">2026</div>
-        <div class="timeline-middle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-        <div class="timeline-end timeline-box">MSci Computer Science at QMUL</div>
-      </li>
-    </ul>
+  <section id="timeline" class="relative bg-[var(--canvas)] overflow-hidden py-24 lg:py-36">
+    <div class="ambient ambient-indigo w-[460px] h-[460px] -top-32 -left-32" aria-hidden="true"></div>
 
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <!-- Left-aligned header -->
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 24 }"
+        :visibleOnce="{ opacity: 1, y: 0, transition: { duration: 800 } }"
+        class="grid grid-cols-12 mb-16"
+      >
+        <div class="col-span-12 lg:col-span-9">
+          <h2 class="display text-4xl md:text-6xl lg:text-7xl">
+            A short <span class="italic font-serif font-light text-[var(--accent-indigo)]">history</span>.
+          </h2>
+          <p class="mt-6 max-w-xl muted text-[15px]">
+            Education, career and the in-betweens. Most recent first.
+          </p>
+        </div>
+      </div>
 
-    <p class="w-full text-center font-xs font-semibold mt-6 md:mt-18">Career</p>
-    <ul class="timeline timeline-vertical lg:timeline-horizontal px-6 lg:px-0">
-      <li>
-        <div class="timeline-start">2017</div>
-        <div class="timeline-middle text-blue-400">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
+      <div
+        v-motion
+        :initial="{ opacity: 0, y: 24 }"
+        :visibleOnce="{ opacity: 1, y: 0, transition: { duration: 900, delay: 150 } }"
+        class="grid grid-cols-12 gap-y-16 lg:gap-x-12"
+      >
+        <!-- Career -->
+        <div class="col-span-12 lg:col-span-6">
+          <div class="flex items-center gap-2 mb-6">
+            <span class="w-2 h-2 rounded-full bg-[var(--accent-orange)]"></span>
+            <h3 class="eyebrow">Career</h3>
+          </div>
+          <div class="border-t border-[var(--rule)]">
+            <article v-for="item in career" :key="item.title + item.year" class="py-6 grid grid-cols-12 gap-3 items-baseline border-b border-[var(--rule)] hover:bg-[var(--canvas-2)]/60 transition px-2 -mx-2 rounded-sm">
+              <div class="col-span-4 sm:col-span-3 eyebrow numeric">{{ item.year }}</div>
+              <div class="col-span-8 sm:col-span-9">
+                <div class="text-base font-medium">{{ item.title }}</div>
+                <div class="text-sm muted">{{ item.org }}</div>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="timeline-end timeline-box">Intructor at Tsunami Martial Arts</div>
-        <hr class="bg-blue-400" />
-      </li>
-      <li>
-        <hr class="bg-blue-400" />
-        <div class="timeline-start">2022</div>
-        <div class="timeline-middle text-blue-400">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
+
+        <!-- Education -->
+        <div class="col-span-12 lg:col-span-6">
+          <div class="flex items-center gap-2 mb-6">
+            <span class="w-2 h-2 rounded-full bg-[var(--accent-teal)]"></span>
+            <h3 class="eyebrow">Education</h3>
+          </div>
+          <div class="border-t border-[var(--rule)]">
+            <article v-for="item in education" :key="item.title + item.year" class="py-6 grid grid-cols-12 gap-3 items-baseline border-b border-[var(--rule)] hover:bg-[var(--canvas-2)]/60 transition px-2 -mx-2 rounded-sm">
+              <div class="col-span-4 sm:col-span-3 eyebrow numeric">{{ item.year }}</div>
+              <div class="col-span-8 sm:col-span-9">
+                <div class="text-base font-medium">{{ item.title }}</div>
+                <div class="text-sm muted">{{ item.org }}</div>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="timeline-end timeline-box text-wrap">Gap year work at Starlings of Holt
-        </div>
-        <hr class="bg-blue-400" />
-      </li>
-      <li>
-        <hr class="bg-blue-400" />
-        <div class="timeline-start">2024 - 2025</div>
-        <div class="timeline-middle text-blue-400">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-        <div class="timeline-end timeline-box">Activity Leader at MCS Projects</div>
-        <hr class="bg-blue-400" />
-      </li>
-      <li>
-        <hr class="bg-blue-400" />
-        <div class="timeline-start">2023 - Present</div>
-        <div class="timeline-middle text-blue-400">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clip-rule="evenodd" />
-          </svg>
-        </div>
-        <div class="timeline-end timeline-box">Demonstrator Teaching Assistant at QMUL</div>
-      </li>
-    </ul>
-  </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts" setup>
-// No additional imports needed for this section
+const career = [
+  { year: '2026, present', title: 'Co-founder & COO', org: 'Efficura' },
+  { year: '2026, present', title: 'Software Developer', org: 'Efficura' },
+  { year: '2023, 2026', title: 'Demonstrator Teaching Assistant', org: 'Queen Mary University of London' },
+  { year: '2024, 2025', title: 'Activity Leader', org: 'MCS Projects' },
+  { year: '2022', title: 'Gap-year roles', org: 'Starlings of Holt' },
+  { year: '2017, 2021', title: 'Martial Arts Instructor', org: 'Tsunami Martial Arts' }
+]
+
+const education = [
+  { year: '2026', title: 'MSci Computer Science, First Class', org: 'Queen Mary University of London' },
+  { year: '2021', title: 'A-Levels A*A*A · EPQ A · LAMDA Grade 8', org: 'Wymondham College' },
+  { year: '2019', title: '10 GCSEs', org: 'Sheringham High School' }
+]
 </script>
