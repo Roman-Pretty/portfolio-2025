@@ -99,13 +99,30 @@ html, body, main { scroll-behavior: smooth; }
 /* Glass surface */
 .glass {
   background: var(--glass);
-  backdrop-filter: saturate(180%) blur(18px);
-  -webkit-backdrop-filter: saturate(180%) blur(18px);
 }
+
 .glass-strong {
   background: var(--glass-strong);
-  backdrop-filter: saturate(200%) blur(22px);
-  -webkit-backdrop-filter: saturate(200%) blur(22px);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .glass {
+    backdrop-filter: saturate(180%) blur(18px);
+  }
+
+  .glass-strong {
+    backdrop-filter: saturate(200%) blur(22px);
+  }
+}
+
+@supports (-webkit-backdrop-filter: blur(1px)) {
+  .glass {
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+  }
+
+  .glass-strong {
+    -webkit-backdrop-filter: saturate(200%) blur(22px);
+  }
 }
 
 /* Halftone dotted accent */
